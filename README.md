@@ -1,3 +1,10 @@
+-------------------------------------------------------------------------------------------------------------------------
+
+# Amis-Anims
+Amis-Anims est une application web qui regroupe différents jeux, activités et chansons pour faciliter la préparation des animateurs en séjour de vacances et centre de loisirs.
+
+-------------------------------------------------------------------------------------------------------------------------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
