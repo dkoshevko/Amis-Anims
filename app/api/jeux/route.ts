@@ -1,20 +1,94 @@
-import { NextResponse } from "next/server";
-import db from "../../config/db";
+"use server";
 
-export async function GET() {
+import { query } from "../../config/db";
+
+
+export async function GET(request: Request) {
+  const users = await query({
+    query: "SELECT * FROM games",
+    values: [],
+  });
+
+  let data = JSON.stringify(users);
+  return new Response(data, {
+    status: 200,
+  });
+}
+
+export async function POST(request: Request) {
   try {
-    const results = await new Promise((resolve, reject) => {
-      db.query("SELECT * FROM games", (err: any, results: []) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(results);
-        }
-      });
+    const {
+      game_title,
+      game_category,
+      game_category_id,
+      game_age,
+      game_place,
+      game_time,
+      game_number_of_children,
+      game_preparation_time,
+      game_necessary_material,
+      game_goal,
+      game_advices,
+      game_rules,
+      game_image_url,
+      game_plan_url,
+    } = await request.json();
+    const addGame: any = await query({
+      query:
+        "INSERT INTO games (game_title, game_category, game_category_id, game_age, game_place, game_time, game_number_of_children, game_preparation_time, game_necessary_material, game_goal, game_advices, game_rules, game_image_url, game_plan_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      values: [
+        game_title,
+        game_category,
+        game_category_id,
+        game_age,
+        game_place,
+        game_time,
+        game_number_of_children,
+        game_preparation_time,
+        game_necessary_material,
+        game_goal,
+        game_advices,
+        game_rules,
+        game_image_url,
+        game_plan_url,
+      ],
     });
-    console.log(results);
-    return NextResponse.json(results);
+    const result = addGame.affectedRows;
+    let message = "";
+    if (result) {
+      message = "success";
+    } else {
+      message = "error";
+    }
+    const game = {
+      game_title: game_title,
+      game_category: game_category,
+      game_category_id: game_category_id,
+      game_age: game_age,
+      game_place: game_place,
+      game_time: game_time,
+      game_number_of_children: game_number_of_children,
+      game_preparation_time: game_preparation_time,
+      game_necessary_material: game_necessary_material,
+      game_goal: game_goal,
+      game_advices: game_advices,
+      game_rules: game_rules,
+      game_image_url: game_image_url,
+      game_plan_url: game_plan_url,
+    };
+    return new Response(
+      JSON.stringify({
+        message: message,
+        status: 200,
+        game: game,
+      })
+    );
   } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
+    return new Response(
+      JSON.stringify({
+        status: 500,
+        data: request,
+      })
+    );
   }
 }

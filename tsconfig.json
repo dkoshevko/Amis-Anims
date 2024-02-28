@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/config/db.js"
-  ],
+, "app/api/jeux/route.ts"  ],
   "exclude": ["node_modules"]
 }
