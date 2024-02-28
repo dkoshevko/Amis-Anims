@@ -2,8 +2,8 @@ import NavLink from "./NavLink";
 
 export default function Navigation() {
   return (
-    <nav className="hidden lg:block">
-      <ul className="flex gap-x-6">
+    <nav>
+      <ul className="flex flex-col items-center gap-6 lg:flex-row">
         <NavLink url="jeux" title="jeux" />
         <NavLink url="chants" title="chants" />
         <NavLink url="ressources" title="autres ressources" />
