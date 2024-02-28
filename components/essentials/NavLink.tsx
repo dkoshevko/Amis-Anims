@@ -8,9 +8,12 @@ type NavLinkProps = {
 
 const NavLink: FC<NavLinkProps> = ({ url, title }) => {
   return (
-    <li className="uppercase text-black">
-      <Link href={`/${url}`}>{title}</Link>
-    </li>
+    <Link
+      href={`/${url}`}
+      className="cursor-pointer text-black text-center border border-slate-300 rounded py-4 w-full lg:border-none lg:w-auto lg:active:bg-transparent active:bg-white active:border-white"
+    >
+      <li>{title}</li>
+    </Link>
   );
 };
 

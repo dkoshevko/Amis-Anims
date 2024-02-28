@@ -3,13 +3,13 @@ import NavLink from "./NavLink";
 export default function Navigation() {
   return (
     <nav>
-      <ul className="flex flex-col items-center gap-6 lg:flex-row">
-        <NavLink url="jeux" title="jeux" />
-        <NavLink url="chants" title="chants" />
-        <NavLink url="ressources" title="autres ressources" />
-        <NavLink url="formation" title="formation" />
-        <NavLink url="compteur" title="compteur" />
-        <NavLink url="contact" title="contact" />
+      <ul className="flex flex-col items-center gap-6 px-4 lg:flex-row lg:px-0">
+        <NavLink url="jeux" title="Jeux" />
+        <NavLink url="chants" title="Chants" />
+        <NavLink url="ressources" title="Autres ressources" />
+        <NavLink url="formation" title="Formation" />
+        <NavLink url="compteur" title="Compteur" />
+        <NavLink url="contact" title="Contact" />
         <NavLink url="nous-soutenir" title="Soutenir le projet" />
       </ul>
     </nav>
