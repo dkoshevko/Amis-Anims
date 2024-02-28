@@ -2,7 +2,7 @@ import NavLink from "./NavLink";
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className="hidden lg:block">
       <ul className="flex gap-x-6">
         <NavLink url="jeux" title="jeux" />
         <NavLink url="chants" title="chants" />
