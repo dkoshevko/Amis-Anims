@@ -1,40 +1,20 @@
-import { query } from "@/lib/db";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
+import db from "../../config/db";
 
-type handlerTypes = {
-  req: NextApiRequest;
-  res: NextApiResponse;
-};
-
-export default async function handler({ req, res }: handlerTypes) {
-  let games;
-  let message;
-
-  if (req.method === "GET") {
-    const games = await query({
-      query: "SELECT * FROM games",
-      values: [],
+export async function GET() {
+  try {
+    const results = await new Promise((resolve, reject) => {
+      db.query("SELECT * FROM games", (err: any, results: []) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
     });
-
-    res.status(200).json({ games: games });
+    console.log(results);
+    return NextResponse.json(results);
+  } catch (error) {
+    return NextResponse.json({ message: error }, { status: 500 });
   }
-  // if (req.method === "POST") {
-  //   const gameTitle = req.body.title;
-  //   const addGames = await query({
-  //     query: "INSERT INTO games (title) VALUES (?)",
-  //     values: [gameTitle],
-  //   });
-  //   if (addGames.insertId) {
-  //     message = "succes";
-  //   } else {
-  //     message = "error";
-  //   }
-
-  //   let game = {
-  //     game_id: addGames.insertId,
-  //     title: gameTitle,
-  //   };
-
-  //   res.status(200).json({ response: { message: message, game: game } });
-  // }
 }
