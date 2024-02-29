@@ -1,14 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type GameCategoryProps = {
+type GameCategoryCardProps = {
   title: string;
   linkTo: string;
   imageUrl: string;
   imageAlt: string;
 };
 
-export default function GameCategory({ title, linkTo, imageUrl, imageAlt }: GameCategoryProps) {
+export default function GameCategoryCard({
+  title,
+  linkTo,
+  imageUrl,
+  imageAlt,
+}: GameCategoryCardProps) {
   return (
     <Link href={linkTo}>
       <div className="w-full h-40 relative rounded-lg">
