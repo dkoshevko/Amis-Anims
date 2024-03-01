@@ -3,19 +3,10 @@
 import { useEffect, useState } from "react";
 import GameCard from "@/components/GameCard";
 import { Game } from "@/common/Game";
-import { useSearchParams } from "next/navigation";
 
 export default function GamePerCategory() {
   const [games, setGames] = useState<Game[]>([]);
-
-  // const searchParams = useSearchParams();
-  // const game_category_id = searchParams.get("game_category_id");
-
-  // const filteredGames = games.filter(game => game.game_category_id === game_category_id);
-
-  // console.log(game_category_id);
   
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -50,7 +41,7 @@ export default function GamePerCategory() {
             <GameCard
               key={game.game_category_id}
               title={game.game_title}
-              linkTo={`/jeux/${game.game_id}`}
+              linkTo={`/jeux/titre/${game.game_id}`}
               imageUrl={game.game_image_url}
               imageAlt={game.game_title}
             />

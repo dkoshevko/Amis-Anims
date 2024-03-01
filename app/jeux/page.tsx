@@ -35,7 +35,7 @@ export default function Jeux() {
               <GameCategoryCard
                 key={game.game_category_id}
                 title={game.game_category}
-                linkTo={`/jeux/categorie/${game.game_category_id}`}
+                linkTo={`/jeux/${game.game_category_id}`}
                 imageUrl={""}
                 imageAlt={""}
               />

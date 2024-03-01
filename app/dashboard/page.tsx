@@ -26,7 +26,7 @@ export default function Dashboard() {
     const gameData = {
       game_title: gameTitleRef.current.value.trim(),
       game_category: gameCategoryRef.current.value.trim(),
-      game_category_id: gameCategoryRef.current.value,
+      game_category_id: gameCategoryIdRef.current.value,
       game_age: gameAgeRef.current.value,
       game_place: gamePlaceRef.current.value,
       game_time: gameTimeRef.current.value,
@@ -104,16 +104,16 @@ export default function Dashboard() {
               <input type="text" ref={gameNecessaryMaterialRef} />
             </div>
             <div>
+              <span>Objectif :</span>
+              <input type="text" ref={gameGoalRef} />
+            </div>
+            <div>
               <span>Image :</span>
               <input type="file" name="" id="" ref={gameImageRef} />
             </div>
             <div>
               <span>Schéma :</span>
               <input type="file" name="" id="" ref={gamePlanRef} />
-            </div>
-            <div>
-              <span>Objectif :</span>
-              <input type="text" ref={gameGoalRef} />
             </div>
             <div>
               <span>Conseils :</span>
