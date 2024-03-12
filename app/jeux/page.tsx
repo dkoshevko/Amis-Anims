@@ -5,26 +5,9 @@ import GameCategoryCard from "@/components/GameCategoryCard";
 import { Game } from "@/common/Game";
 import { useQuery } from "@tanstack/react-query";
 
+
 export default function Jeux() {
-  // const [games, setGames] = useState<Game[]>([]);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("/api/jeux");
-  //       if (!response.ok) {
-  //         throw new Error("Erreur lors de la récupération des données");
-  //       }
-  //       const data = await response.json();
-  //       setGames(data);
-  //     } catch (error) {
-  //       console.error("Erreur:", error);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
-
+  // Appel à l'API
   const {
     data: games,
     isLoading,
@@ -34,6 +17,7 @@ export default function Jeux() {
     queryKey: ["games"],
     queryFn: () => fetch("/api/jeux").then((res) => res.json()),
   });
+
 
   return (
     <main className="w-full">
