@@ -35,9 +35,9 @@ export default function GamePerCategory() {
   return (
     <main className="w-full">
       <div className="container m-auto px-4 h-full">
-        <div className="flex">
+        <div className="flex mb-5">
           <BackButton />
-          <h3 className="text-xl">{categoryName}</h3>
+          <h3 className="text-2xl font-semibold">{categoryName}</h3>
         </div>
         {/* <div>
         recherche

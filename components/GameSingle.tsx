@@ -33,7 +33,7 @@ export default function GameSingle({
 
   return (
     <div>
-      <Image src={"/a-m.jpg"} alt={imageAlt} width={800} height={100} className="mb-5" />
+      <Image src={imageUrl} alt={imageAlt} width={800} height={100} className="mb-5" />
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-5">
         <InfoBubble info={`Tranches d'âge : ${age}`} />
         <InfoBubble info={`Joueurs : ${players}`} />
