@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Game } from "@/common/Game";
 import GameCard from "@/components/GameCard";
 
-
 export default function GamePerCategory() {
   // Récupération du paramètre dans l'URL
   const params = useParams<{ game_category_id: string }>();
@@ -27,8 +26,10 @@ export default function GamePerCategory() {
   );
 
   // Récupération du nom de la catégorie à partir du premier jeu filtré
-  const categoryName = filteredGames && filteredGames.length > 0 ? filteredGames[0].game_category : "";
-
+  const categoryName =
+    filteredGames && filteredGames.length > 0
+      ? filteredGames[0].game_category
+      : "";
 
   return (
     <main className="w-full">
@@ -47,7 +48,7 @@ export default function GamePerCategory() {
             <GameCard
               key={game.game_category_id}
               title={game.game_title}
-              linkTo={`/jeux/titre/${game.game_id}`}
+              linkTo={`/jeux/${params.game_category_id}/titre/${game.game_id}`}
               imageUrl={game.game_image_url}
               imageAlt={game.game_title}
             />
