@@ -1,9 +1,10 @@
 "use client";
 
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import { Game } from "@/common/Game";
 import GameSingle from "@/components/GameSingle";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import BackButton from "@/components/essentials/BackButton";
 
 export default function GamePage() {
   // Récupération du paramètre dans l'URL
@@ -35,7 +36,7 @@ export default function GamePage() {
     <main className="w-full">
       <div className="container m-auto px-4 h-full">
         <div className="flex mb-5">
-          {/* fleche retour */}
+          <BackButton />
           <h3 className="text-2xl font-semibold">{gameName}</h3>
         </div>
         {/* map des composants de jeux individuels */}

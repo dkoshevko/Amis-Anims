@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Game } from "@/common/Game";
 import GameCard from "@/components/GameCard";
+import BackButton from "@/components/essentials/BackButton";
 
 export default function GamePerCategory() {
   // Récupération du paramètre dans l'URL
@@ -35,7 +36,7 @@ export default function GamePerCategory() {
     <main className="w-full">
       <div className="container m-auto px-4 h-full">
         <div className="flex">
-          {/* fleche retour */}
+          <BackButton />
           <h3 className="text-xl">{categoryName}</h3>
         </div>
         {/* <div>
