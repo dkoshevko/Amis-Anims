@@ -117,15 +117,31 @@ export default function Dashboard() {
             </div>
             <div>
               <span>Temps de jeu :</span>
-              <input type="text" ref={gameTimeRef} />
+              <select name="" id="" ref={gameTimeRef}>
+                <option value="15-30min">15-30min</option>
+                <option value="30-45min">30-45min</option>
+                <option value="45min - 1h">45min - 1h</option>
+                <option value="+1h">+1h</option>
+                <option value="fil rouge">&quot;fil rouge&quot;</option>
+              </select>
             </div>
             <div>
               <span>Nombre enfants :</span>
-              <input type="text" ref={gameNumberOfChildrenRef} />
+              <select name="" id="" ref={gameNumberOfChildrenRef}>
+                <option value="8+">8+</option>
+                <option value="12+">12+</option>
+                <option value="20+">20+</option>
+                <option value="30+">30+</option>
+              </select>
             </div>
             <div>
               <span>Temps préparation :</span>
-              <input type="text" ref={gamePreparationTimeRef} />
+              <select name="" id="" ref={gamePreparationTimeRef}>
+                <option value="5-10min">5-10min</option>
+                <option value="10-30min">10-30min</option>
+                <option value="30min - 1h">30min - 1h</option>
+                <option value="+1h">+1h</option>
+              </select>
             </div>
             <div>
               <span>Matériel nécessaire :</span>
