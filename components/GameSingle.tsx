@@ -43,7 +43,7 @@ export default function GameSingle({
         <InfoBubble info={`Matériel : ${material}`} />
       </div>
       <h4 className="text-xl font-medium mb-2">Règles du jeu :</h4>
-      <p className="text-justify mb-5">{rules}</p>
+      <p className="text-justify mb-5 whitespace-pre-wrap">{rules}</p>
       <h5 className="text-xl font-medium mb-2">L’objectif du jeu :</h5>
       <p className="mb-5">{goal}</p>
       <h5 className="text-xl font-medium mb-2">Nos conseils :</h5>
