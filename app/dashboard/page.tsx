@@ -2,12 +2,13 @@
 
 import { useRef } from "react";
 
+// const IMAGE_URL = "https://amis-anims.fr/images/";
+
 export default function Dashboard() {
   // Déclaration des ref pour les champs de saisie
   const formRef = useRef() as any;
   const gameTitleRef = useRef() as any;
   const gameCategoryRef = useRef() as any;
-  const gameCategoryIdRef = useRef() as any;
   const gameAgeRef = useRef() as any;
   const gamePlaceRef = useRef() as any;
   const gameTimeRef = useRef() as any;
@@ -22,11 +23,37 @@ export default function Dashboard() {
 
   // Fonction pour ajouter des jeux à la base de données
   async function addGame() {
+    // Mapping des noms de catégorie aux IDs associés
+    const categoryIds: { [key: string]: number } = {
+      "Grand jeu": 0,
+      "Petit jeu": 1,
+      "Jeu de société": 2,
+    };
+
+    // Récupération de la valeur sélectionnée dans le sélecteur de catégorie
+    const selectedCategory = gameCategoryRef.current.value;
+    // Récupération de l'ID associé à la catégorie sélectionnée
+    const selectedCategoryId = categoryIds[selectedCategory];
+
+    // Récupération du nom de fichier de l'image
+    const imageFile = gameImageRef.current.files[0];
+    const imageFileName = imageFile ? imageFile.name : "";
+
+    // Formation de l'URL complète de l'image
+    const imageUrl = imageFileName ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${imageFileName}` : "";
+
+    // Récupération du nom de fichier du plan
+    const planFile = gamePlanRef.current.files[0];
+    const planFileName = planFile ? planFile.name : "";
+
+    // Formation de l'URL complète du plan
+    const planUrl = planFileName ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${planFileName}` : "";
+
     // Récupération des saisies
     const gameData = {
       game_title: gameTitleRef.current.value.trim(),
-      game_category: gameCategoryRef.current.value.trim(),
-      game_category_id: gameCategoryIdRef.current.value,
+      game_category: selectedCategory,
+      game_category_id: selectedCategoryId,
       game_age: gameAgeRef.current.value,
       game_place: gamePlaceRef.current.value,
       game_time: gameTimeRef.current.value,
@@ -36,10 +63,11 @@ export default function Dashboard() {
       game_goal: gameGoalRef.current.value,
       game_advices: gameAdvicesRef.current.value,
       game_rules: gameRulesRef.current.value,
-      game_image_url: gameImageRef.current.value,
-      game_plan_url: gamePlanRef.current.value,
+      game_image_url: imageUrl,
+      game_plan_url: planUrl,
     };
 
+    // Envoi vers la base de données
     try {
       const response = await fetch("/api/jeux", {
         method: "POST",
@@ -73,15 +101,15 @@ export default function Dashboard() {
             </div>
             <div>
               <span>Category :</span>
-              <input type="text" ref={gameCategoryRef} />
+              <select name="" id="" ref={gameCategoryRef}>
+                <option value="Grand jeu">Grand jeu</option>
+                <option value="Petit jeu">Petit jeu</option>
+                <option value="Jeu de société">Jeu de société</option>
+              </select>
             </div>
             <div>
               <span>Age :</span>
               <input type="text" ref={gameAgeRef} />
-            </div>
-            <div>
-              <span>Category Id :</span>
-              <input type="number" name="" id="" ref={gameCategoryIdRef} />
             </div>
             <div>
               <span>Lieu :</span>
