@@ -40,14 +40,18 @@ export default function Dashboard() {
     const imageFileName = imageFile ? imageFile.name : "";
 
     // Formation de l'URL complète de l'image
-    const imageUrl = imageFileName ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${imageFileName}` : "";
+    const imageUrl = imageFileName
+      ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${imageFileName}`
+      : "";
 
     // Récupération du nom de fichier du plan
     const planFile = gamePlanRef.current.files[0];
     const planFileName = planFile ? planFile.name : "";
 
     // Formation de l'URL complète du plan
-    const planUrl = planFileName ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${planFileName}` : "";
+    const planUrl = planFileName
+      ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${planFileName}`
+      : "";
 
     // Récupération des saisies
     const gameData = {
@@ -113,7 +117,11 @@ export default function Dashboard() {
             </div>
             <div>
               <span>Lieu :</span>
-              <input type="text" ref={gamePlaceRef} />
+              <select name="" id="" ref={gamePlaceRef}>
+                <option value="Intérieur">Intérieur</option>
+                <option value="Extérieur">Extérieur</option>
+                <option value="Intérieur/Extérieur">Intérieur/Extérieur</option>
+              </select>
             </div>
             <div>
               <span>Temps de jeu :</span>
