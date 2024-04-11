@@ -1,5 +1,6 @@
 "use client";
 
+import { OPTIMIZED_FONT_PROVIDERS } from "next/dist/shared/lib/constants";
 import { useRef } from "react";
 
 // const IMAGE_URL = "https://amis-anims.fr/images/";
@@ -136,6 +137,7 @@ export default function Dashboard() {
             <div>
               <span>Nombre enfants :</span>
               <select name="" id="" ref={gameNumberOfChildrenRef}>
+                <option value="6+">6+</option>
                 <option value="8+">8+</option>
                 <option value="12+">12+</option>
                 <option value="20+">20+</option>
