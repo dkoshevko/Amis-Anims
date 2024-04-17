@@ -21,7 +21,7 @@ export default function GameCard({
           {title}
         </h4>
         <Image
-          src={imageUrl}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${imageUrl}`}
           alt={imageAlt}
           fill={true}
           className="relative rounded-xl object-cover"
