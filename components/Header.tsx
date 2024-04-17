@@ -59,7 +59,7 @@ export default function Header() {
 
   return (
     <header className="w-full h-20 bg-transparent sticky top-0 z-50">
-      <div className="absolute -top-4 left-0 w-full h-full bg-white blur z-10"></div>
+      <div className="absolute -top-3 left-0 w-full h-full bg-white z-10"></div>
       <div className="relative container mx-auto px-4 h-full z-50">
         <div className="flex justify-between items-center h-full">
           <Logo />
