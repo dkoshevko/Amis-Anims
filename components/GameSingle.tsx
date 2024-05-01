@@ -33,6 +33,11 @@ export default function GameSingle({
 
   const titleFont: string = "text-xl font-medium mb-2 xl:font-semibold";
 
+  // Fonction pour déterminer si un élément doit être affiché en fonction de son contenu
+  const shouldDisplay = (content: string): string => {
+    return content ? "" : "hidden";
+  };
+
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-10">
       <Image
@@ -50,7 +55,7 @@ export default function GameSingle({
           <InfoBubble info={`Temps de préparation : ${prepTime}`} />
           <InfoBubble info={`Temps de jeu : ${gameTime}`} />
         </div>
-        <div>
+        <div className={shouldDisplay(material)}>
           <h4 className={titleFont}>Matériel :</h4>
           <p className="mb-5">{material}</p>
         </div>
@@ -60,10 +65,14 @@ export default function GameSingle({
         <p className="text-justify mb-5 whitespace-pre-wrap">{rules}</p>
       </div>
       <div>
-        <h5 className={titleFont}>L’objectif du jeu :</h5>
-        <p className="mb-5">{goal}</p>
-        <h5 className={titleFont}>Nos conseils :</h5>
-        <p className="mb-5">{advices}</p>
+        <div className={shouldDisplay(goal)}>
+          <h5 className={titleFont}>L’objectif du jeu :</h5>
+          <p className="mb-5">{goal}</p>
+        </div>
+        <div className={shouldDisplay(advices)}>
+          <h5 className={titleFont}>Nos conseils :</h5>
+          <p className="mb-5">{advices}</p>
+        </div>
       </div>
     </div>
   );
