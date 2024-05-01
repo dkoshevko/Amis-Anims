@@ -34,7 +34,7 @@ export default function GamePage() {
 
   return (
     <main className="w-full">
-      <div className="relative container m-auto px-4 h-full">
+      <article className="relative container m-auto px-4 h-full">
         <div className="sticky top-16 bg-white flex mb-5 z-50">
           <BackButton />
           <h3 className="text-2xl font-semibold">{gameName}</h3>
@@ -59,7 +59,7 @@ export default function GamePage() {
             />
           ))}
         </div>
-      </div>
+      </article>
     </main>
   );
 }
