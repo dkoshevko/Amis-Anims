@@ -44,16 +44,18 @@ export default function GamePerCategory() {
         parametres
       </div> */}
         {/* map des composants de jeux individuels */}
-        <div className="grid grid-cols-2 gap-4">
-          {filteredGames?.map((game) => (
-            <GameCard
-              key={game.game_category_id}
-              title={game.game_title}
-              linkTo={`/jeux/${params.game_category_id}/titre/${game.game_id}`}
-              imageUrl={game.game_image_url}
-              imageAlt={game.game_title}
-            />
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7">
+            {filteredGames?.map((game) => (
+              <GameCard
+                key={game.game_category_id}
+                title={game.game_title}
+                linkTo={`/jeux/${params.game_category_id}/titre/${game.game_id}`}
+                imageUrl={game.game_image_url}
+                imageAlt={game.game_title}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </main>
